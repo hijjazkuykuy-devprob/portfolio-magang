@@ -1,17 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     const API_URL = 'http://127.0.0.1:8000/api/products';
     
+    // DOM Elements
     const loadingEl = document.getElementById('loading');
     const errorEl = document.getElementById('error-state');
     const gridEl = document.getElementById('products-grid');
+    
+    // Modal Elements
+    const modal = document.getElementById('product-modal');
+    const openModalBtn = document.getElementById('open-modal-btn');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const addProductForm = document.getElementById('add-product-form');
+    const submitBtn = document.getElementById('submit-btn');
+    
+    // Toast Element
+    const toast = document.getElementById('toast');
 
+    // --- Fetch Products ---
     async function fetchProducts() {
         try {
             const response = await fetch(API_URL);
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             
             const products = await response.json();
             renderProducts(products);
@@ -23,11 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- Render Products ---
     function renderProducts(products) {
         loadingEl.classList.add('hidden');
         
         if (products.length === 0) {
-            gridEl.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">No products found.</p>';
+            gridEl.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">No products found. Be the first to add one!</p>';
         } else {
             const cardsHtml = products.map(product => `
                 <div class="product-card">
@@ -46,6 +56,91 @@ document.addEventListener('DOMContentLoaded', () => {
         gridEl.classList.remove('hidden');
     }
 
-    // Start fetching
+    // --- Modal Logic ---
+    function openModal() {
+        modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+        modal.classList.add('hidden');
+        addProductForm.reset();
+    }
+
+    openModalBtn.addEventListener('click', openModal);
+    closeModalBtn.addEventListener('click', closeModal);
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // --- Add Product Logic ---
+    addProductForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // UI Loading state
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = 'Saving...';
+        submitBtn.disabled = true;
+
+        const newProduct = {
+            name: document.getElementById('name').value,
+            sku: document.getElementById('sku').value,
+            price: document.getElementById('price').value,
+            stock: document.getElementById('stock').value,
+            category_id: document.getElementById('category_id').value
+        };
+
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(newProduct)
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to add product');
+            }
+
+            // Success
+            closeModal();
+            showToast('Product added successfully!');
+            
+            // Refresh grid
+            loadingEl.classList.remove('hidden');
+            gridEl.classList.add('hidden');
+            fetchProducts();
+
+        } catch (error) {
+            console.error('Error adding product:', error);
+            showToast(error.message, true);
+        } finally {
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
+        }
+    });
+
+    // --- Toast Logic ---
+    function showToast(message, isError = false) {
+        toast.innerText = message;
+        
+        if (isError) {
+            toast.classList.add('error');
+        } else {
+            toast.classList.remove('error');
+        }
+
+        toast.classList.remove('hidden');
+        
+        setTimeout(() => {
+            toast.classList.add('hidden');
+        }, 3000);
+    }
+
+    // Start fetching on load
     fetchProducts();
 });

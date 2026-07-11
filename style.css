@@ -539,6 +539,43 @@ h1, h2, h3 { line-height: 1.2; }
     font-weight: 600;
 }
 
+/* Contact Section Enhancements */
+.contact-info-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.contact-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.contact-item i {
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.contact-item span {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
 /* Footer */
 footer {
     text-align: center;

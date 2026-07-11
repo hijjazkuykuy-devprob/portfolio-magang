@@ -18,6 +18,10 @@
         </header>
 
         <main class="dashboard-main">
+            <div class="action-bar">
+                <button id="open-modal-btn" class="btn-action">+ Add New Product</button>
+            </div>
+
             <!-- Loading State -->
             <div id="loading" class="loading-state">
                 <div class="spinner"></div>
@@ -35,6 +39,47 @@
             </div>
         </main>
     </div>
+
+    <!-- Add Product Modal -->
+    <div id="product-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Product</h2>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </div>
+            <form id="add-product-form">
+                <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input type="text" id="name" required placeholder="e.g. iPhone 15 Pro">
+                </div>
+                <div class="form-group">
+                    <label for="sku">SKU</label>
+                    <input type="text" id="sku" required placeholder="e.g. IPH-15P">
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="price">Price (Rp)</label>
+                        <input type="number" id="price" required min="0" placeholder="e.g. 25000000">
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Stock</label>
+                        <input type="number" id="stock" required min="0" placeholder="e.g. 50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="category_id">Category</label>
+                    <select id="category_id" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="1">Electronics</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-action submit-btn" id="submit-btn">Save Product</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">Product added successfully!</div>
 
     <script src="inventory.js"></script>
 </body>
