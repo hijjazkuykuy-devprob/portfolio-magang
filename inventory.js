@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             const cardsHtml = products.map(product => `
                 <div class="product-card">
+                    <button class="btn-delete" onclick="window.deleteProduct(${product.id})" title="Delete Product">&times;</button>
                     <div class="product-category">${product.category ? product.category.name : 'Uncategorized'}</div>
                     <h3 class="product-name">${product.name}</h3>
                     <div class="product-details">
@@ -55,6 +56,30 @@ document.addEventListener('DOMContentLoaded', () => {
         
         gridEl.classList.remove('hidden');
     }
+
+    // --- Delete Product Logic (Global so inline onclick works) ---
+    window.deleteProduct = async (id) => {
+        if (!confirm('Are you sure you want to delete this product?')) return;
+
+        try {
+            const response = await fetch(`${API_URL}/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to delete product');
+            }
+
+            showToast('Product deleted successfully!');
+            fetchProducts();
+        } catch (error) {
+            console.error('Error deleting product:', error);
+            showToast(error.message, true);
+        }
+    };
 
     // --- Modal Logic ---
     function openModal() {
