@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Dashboard - Live Demo</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="inventory.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+            <h1>Inventory API <span>Dashboard</span></h1>
+            <p>Data fetched live from Laravel Backend</p>
+        </header>
+
+        <main class="dashboard-main">
+            <!-- Loading State -->
+            <div id="loading" class="loading-state">
+                <div class="spinner"></div>
+                <p>Connecting to Laravel API...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="error-state hidden">
+                <p>Failed to load data. Is the Laravel server running?</p>
+            </div>
+
+            <!-- Data Grid -->
+            <div id="products-grid" class="products-grid hidden">
+                <!-- Products will be injected here via JS -->
+            </div>
+        </main>
+    </div>
+
+    <script src="inventory.js"></script>
+</body>
+</html>

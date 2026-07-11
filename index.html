@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdillah Hijjaz - Laravel & React Native Developer Portfolio</title>
+    <meta name="description" content="Portofolio Muhammad Abdillah Hijjaz Alfiqrie, Laravel & React Native Developer">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <nav class="navbar">
+        <div class="logo-pill">
+            <img src="image/profile.png" alt="Logo Profile">
+        </div>
+        <div class="nav-pill">
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </div>
+        <a href="#contact" class="btn-talk">Let's Talk</a>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h3 class="greeting">Halo, Saya Muhammad Abdillah Hijjaz Alfiqrie</h3>
+                <h1 class="name">Web Developer<br>& UI / UX Designer</h1>
+                <p class="summary">
+                    Memiliki fondasi kuat dalam pengembangan aplikasi web modern (React, Node.js) dan UI/UX. Saat ini
+                    mendalami ekosistem Laravel dan React Native untuk web dan mobile.
+                </p>
+                <div class="cta-buttons">
+                    <a href="CV Muhammad Abdillah Hijjaz Alfiqrie.pdf" class="btn-outline-pill" download>Download CV</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/abdillah-hijjaz" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/hijjazkuykuy-devprob" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="image-cutout">
+                    <!-- Nanti masukkan fotomu ke dalam folder 'image' dengan nama 'profile.png' -->
+                    <img src="image/profile.png" alt="Profile Photo" id="profile-img"
+                        onerror="this.style.display='none'; document.getElementById('fallback-icon').style.display='block';">
+                    <i class="fa-solid fa-user" id="fallback-icon"
+                        style="font-size: 8rem; color: #222; display: none;"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="about section">
+        <div class="section-header">
+            <h2 class="title">Tentang Saya</h2>
+            <div class="line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3 class="about-subtitle">Berfokus pada Solusi Digital Terpadu</h3>
+                <p>
+                    Saya adalah seorang pengembang perangkat lunak yang adaptif dan terbiasa memecahkan masalah melalui
+                    kode. Berpengalaman membangun berbagai platform digital nyata seperti Psychelp dan Dashboard Sampah
+                    menggunakan ekosistem modern (React, Node, Firebase).
+                </p>
+                <p>
+                    Sebagai seorang <em>fast learner</em>, saya telah berhasil mengembangkan berbagai aplikasi menggunakan <strong>React Native</strong> dan <strong>Laravel</strong>. Dengan fondasi logika dan desain yang kuat, saya sangat siap untuk terjun langsung dan berkontribusi maksimal di lingkungan profesional.
+                </p>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat-card glass-card">
+                    <h3 class="stat-number">4+</h3>
+                    <p class="stat-label">Proyek Selesai</p>
+                </div>
+                <div class="stat-card glass-card">
+                    <h3 class="stat-number">10+</h3>
+                    <p class="stat-label">Teknologi Dikuasai</p>
+                </div>
+                <div class="stat-card glass-card">
+                    <h3 class="stat-number">24/7</h3>
+                    <p class="stat-label">Semangat Belajar</p>
+                </div>
+                <div class="stat-card glass-card">
+                    <h3 class="stat-number">100%</h3>
+                    <p class="stat-label">Siap Magang</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills section">
+        <div class="section-header">
+            <h2 class="title">Keahlian</h2>
+            <div class="line"></div>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category glass-card">
+                <h3><i class="fa-solid fa-code"></i> Web Development</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-brands fa-react"></i> React.js / Node.js</li>
+                    <li><i class="fa-brands fa-js"></i> JavaScript (ES6+)</li>
+                    <li><i class="fa-brands fa-html5"></i> HTML5 & CSS3</li>
+                    <li><i class="fa-brands fa-css3-alt"></i> Tailwind CSS</li>
+                </ul>
+            </div>
+            <div class="skill-category glass-card">
+                <h3><i class="fa-solid fa-server"></i> Backend & Mobile</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-brands fa-laravel" style="color: #ef4444;"></i> Laravel Framework</li>
+                    <li><i class="fa-brands fa-react" style="color: #38bdf8;"></i> React Native</li>
+                    <li><i class="fa-brands fa-php"></i> PHP & MVC Concept</li>
+                    <li><i class="fa-solid fa-mobile-screen"></i> Cross-Platform Mobile</li>
+                </ul>
+            </div>
+            <div class="skill-category glass-card">
+                <h3><i class="fa-solid fa-pen-nib"></i> UI/UX & Tools</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-brands fa-figma"></i> Figma / Prototyping</li>
+                    <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
+                    <li><i class="fa-solid fa-fire"></i> Firebase</li>
+                    <li><i class="fa-solid fa-layer-group"></i> Wireframing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects section">
+        <div class="section-header">
+            <h2 class="title">Proyek Pilihan</h2>
+            <div class="line"></div>
+        </div>
+        <div class="projects-grid">
+
+            <!-- Project 1: Psychelp -->
+            <div class="project-card glass-card">
+                <div class="project-image"
+                    style="background: linear-gradient(135deg, #1f2937, #374151); display: flex; align-items: center; justify-content: center; height: 200px;">
+                    <i class="fa-solid fa-brain" style="font-size: 4rem; color: #a78bfa;"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Psychelp (Mental Health)</h3>
+                    <p>Aplikasi platform kesehatan mental untuk menyediakan akses bantuan psikologis. Menggunakan
+                        ekosistem web modern untuk performa tinggi.</p>
+                    <div class="tech-stack">
+                        <span>React</span>
+                        <span>Vite</span>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/hijjazkuykuy-devprob/psychelp" target="_blank" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Dashboard Sampah -->
+            <div class="project-card glass-card">
+                <div class="project-image"
+                    style="background: linear-gradient(135deg, #065f46, #047857); display: flex; align-items: center; justify-content: center; height: 200px;">
+                    <i class="fa-solid fa-recycle" style="font-size: 4rem; color: #34d399;"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Dashboard Sampah</h3>
+                    <p>Sistem dasbor pemantauan dan pengelolaan sampah secara cerdas dan real-time. Menampilkan data
+                        interaktif untuk pengambilan keputusan.</p>
+                    <div class="tech-stack">
+                        <span>React</span>
+                        <span>Firebase</span>
+                        <span>Tailwind</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/hijjazkuykuy-devprob/dashboard-sampah" target="_blank" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Web Supporter Vokasi -->
+            <div class="project-card glass-card">
+                <div class="project-image"
+                    style="background: linear-gradient(135deg, #b45309, #78350f); display: flex; align-items: center; justify-content: center; height: 200px;">
+                    <i class="fa-solid fa-users" style="font-size: 4rem; color: #fcd34d;"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Web Supporter Vokasi</h3>
+                    <p>Platform komunitas dan informasi untuk mendukung kegiatan mahasiswa vokasi. Memiliki fitur
+                        manajemen pengguna dan publikasi artikel.</p>
+                    <div class="tech-stack">
+                        <span>Frontend Dev</span>
+                        <span>JavaScript</span>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: KembaraLintas -->
+            <div class="project-card glass-card">
+                <div class="project-image"
+                    style="background: linear-gradient(135deg, #eab308, #a16207); display: flex; align-items: center; justify-content: center; height: 200px;">
+                    <i class="fa-solid fa-motorcycle" style="font-size: 4rem; color: #fef08a;"></i>
+                </div>
+                <div class="project-info">
+                    <h3>KembaraLintas</h3>
+                    <p>Desain UI/UX untuk platform penyewaan motor (rental motor). Berfokus pada kemudahan pemesanan, pencarian kendaraan, dan pengalaman pengguna yang intuitif.</p>
+                    <div class="tech-stack">
+                        <span>UI/UX Design</span>
+                        <span>Figma</span>
+                        <span>Prototyping</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://www.figma.com/design/fh3eahmFiPNj9opRrMFrTO/Project-KembaraLintas-%F0%9F%A4%AF?node-id=0-1&t=144Hah15VeB5PS2Z-1" target="_blank" class="btn btn-sm btn-outline"><i class="fa-brands fa-figma"></i> Lihat Desain Figma</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: Spezialone -->
+            <div class="project-card glass-card">
+                <div class="project-image"
+                    style="background: linear-gradient(135deg, #4338ca, #312e81); display: flex; align-items: center; justify-content: center; height: 200px;">
+                    <i class="fa-solid fa-star" style="font-size: 4rem; color: #818cf8;"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Spezialone Platform</h3>
+                    <p>Aplikasi web interaktif dengan desain UI/UX yang menarik, fokus pada pengalaman pengguna yang
+                        responsif di berbagai perangkat.</p>
+                    <div class="tech-stack">
+                        <span>Web Modern</span>
+                        <span>Figma</span>
+                        <span>UI/UX</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/hijjazkuykuy-devprob/spezialone" target="_blank" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6: Inventory API (Laravel) -->
+            <div class="project-card glass-card">
+                <div class="project-image"
+                    style="background: linear-gradient(135deg, #ef4444, #991b1b); display: flex; align-items: center; justify-content: center; height: 200px;">
+                    <i class="fa-brands fa-laravel" style="font-size: 4rem; color: #fca5a5;"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Inventory Management API</h3>
+                    <p>Backend sistem pengelolaan inventaris barang berbasis REST API. Memiliki fitur kontrol stok dan pencatatan riwayat transaksi.</p>
+                    <div class="tech-stack">
+                        <span>Laravel</span>
+                        <span>PHP</span>
+                        <span>REST API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/hijjazkuykuy-devprob/tugas-laravel" target="_blank" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Source Code</a>
+                        <a href="inventory.html" class="btn btn-sm" style="background: var(--accent); color: white; border: none;"><i class="fa-solid fa-desktop"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7: Task Manager (React Native) -->
+            <div class="project-card glass-card">
+                <div class="project-image"
+                    style="background: linear-gradient(135deg, #0ea5e9, #0369a1); display: flex; align-items: center; justify-content: center; height: 200px;">
+                    <i class="fa-brands fa-react" style="font-size: 4rem; color: #7dd3fc;"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Task Manager Mobile</h3>
+                    <p>Aplikasi mobile untuk mengelola daftar tugas harian. Menggunakan React Native (Expo) dengan fokus pada UI interaktif dan navigasi yang mulus.</p>
+                    <div class="tech-stack">
+                        <span>React Native</span>
+                        <span>Expo</span>
+                        <span>Mobile Dev</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact section">
+        <div class="glass-card text-center">
+            <h2 class="title" style="margin-bottom: 20px;">Mari Bekerja Sama</h2>
+            <p>Tertarik untuk merekrut saya sebagai anak magang? Jangan ragu untuk menghubungi saya melalui email atau
+                platform profesional.</p>
+            <div class="contact-buttons" style="margin-top: 30px;">
+                <a href="mailto:hijjazkuykuy@gmail.com" class="btn btn-primary"><i
+                        class="fa-solid fa-paper-plane"></i> Kirim Pesan</a>
+                <!-- Link ini akan diganti dengan URL GitHub aslimu -->
+                <a href="https://github.com/hijjazkuykuy-devprob" target="_blank" class="btn btn-outline"><i
+                        class="fa-brands fa-github"></i> Kunjungi GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Muhammad Abdillah Hijjaz Alfiqrie. Built with <i class="fa-solid fa-heart"
+                style="color: #ef4444;"></i></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
