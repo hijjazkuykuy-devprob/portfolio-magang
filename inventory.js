@@ -26,9 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
             renderProducts(products);
             
         } catch (error) {
-            console.error('Error fetching products:', error);
-            loadingEl.classList.add('hidden');
-            errorEl.classList.remove('hidden');
+            console.warn('Backend Laravel tidak merespons (wajar karena ini Live Demo statis). Menggunakan data palsu (mock)...');
+            // Mock Data Fallback
+            const mockProducts = [
+                { id: 1, name: "iPhone 15 Pro", category: { name: "Electronics" }, price: 25000000, stock: 45 },
+                { id: 2, name: "MacBook Air M2", category: { name: "Electronics" }, price: 18500000, stock: 12 },
+                { id: 3, name: "Sony WH-1000XM5", category: { name: "Accessories" }, price: 5800000, stock: 30 }
+            ];
+            renderProducts(mockProducts);
+            showToast('Menampilkan data simulasi (Backend offline)', false);
         }
     }
 
@@ -41,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             const cardsHtml = products.map(product => `
                 <div class="product-card">
-                    <button class="btn-delete" onclick="window.deleteProduct(${product.id})" title="Delete Product">&times;</button>
+                    <button class="btn-delete" onclick="window.deleteProduct(${product.id}, this)" title="Delete Product">&times;</button>
                     <div class="product-category">${product.category ? product.category.name : 'Uncategorized'}</div>
                     <h3 class="product-name">${product.name}</h3>
                     <div class="product-details">
@@ -58,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Delete Product Logic (Global so inline onclick works) ---
-    window.deleteProduct = async (id) => {
+    window.deleteProduct = async (id, btn) => {
         if (!confirm('Are you sure you want to delete this product?')) return;
 
         try {
@@ -76,8 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
             showToast('Product deleted successfully!');
             fetchProducts();
         } catch (error) {
-            console.error('Error deleting product:', error);
-            showToast(error.message, true);
+            console.warn('Backend offline, simulating delete...');
+            showToast('Simulasi: Produk berhasil dihapus!');
+            if (btn) btn.closest('.product-card').remove();
         }
     };
 
@@ -141,8 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
             fetchProducts();
 
         } catch (error) {
-            console.error('Error adding product:', error);
-            showToast(error.message, true);
+            console.warn('Backend offline, simulating add...');
+            closeModal();
+            showToast('Simulasi: Produk berhasil ditambahkan!');
         } finally {
             submitBtn.innerText = originalBtnText;
             submitBtn.disabled = false;

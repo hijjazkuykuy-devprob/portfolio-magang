@@ -54,12 +54,11 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
+    color: #ffffff;
 }
 
 .dashboard-header h1 span {
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
 }
 
 .dashboard-header p {
