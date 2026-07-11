@@ -81,3 +81,12 @@ window.addEventListener('scroll', () => {
         navbar.style.backdropFilter = 'none';
     }
 });
+
+// Hamburger menu logic
+const hamburger = document.getElementById('hamburger');
+const navPill = document.querySelector('.nav-pill');
+if (hamburger && navPill) {
+    hamburger.addEventListener('click', () => {
+        navPill.classList.toggle('active');
+    });
+}
