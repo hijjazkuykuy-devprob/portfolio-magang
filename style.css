@@ -152,6 +152,7 @@ h1, h2, h3 { line-height: 1.2; }
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
 }
 
 .nav-pill {
