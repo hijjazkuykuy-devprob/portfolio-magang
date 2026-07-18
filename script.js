@@ -116,7 +116,7 @@ if (biodataModal && closeBiodata && logoPill) {
 
 // Modal Logic for Projects
 const modal = document.getElementById('project-modal');
-const closeModal = document.querySelector('.close-modal');
+const closeModal = modal ? modal.querySelector('.close-modal') : null;
 
 if (modal && closeModal) {
     closeModal.onclick = () => {
