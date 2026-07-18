@@ -30,30 +30,7 @@ body {
     position: relative;
 }
 
-/* Custom Cursor */
-.cursor-dot,
-.cursor-outline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 9999;
-    pointer-events: none;
-}
 
-.cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--primary);
-}
-
-.cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--secondary);
-    transition: transform 0.2s, border-color 0.2s, left 0.15s ease-out, top 0.15s ease-out;
-}
 
 /* Typography & Utilities */
 h1, h2, h3 { line-height: 1.2; }

@@ -1,30 +1,3 @@
-// Custom Cursor
-const cursorDot = document.querySelector('[data-cursor-dot]');
-const cursorOutline = document.querySelector('[data-cursor-outline]');
-
-window.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
-
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    cursorOutline.style.left = `${posX}px`;
-    cursorOutline.style.top = `${posY}px`;
-});
-
-// Interactive hover effect for links and buttons
-const interactables = document.querySelectorAll('a, .btn, .project-card, .skill-category, .close-modal');
-interactables.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-        cursorOutline.style.borderColor = '#d946ef'; // Change color on hover
-    });
-    el.addEventListener('mouseleave', () => {
-        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-        cursorOutline.style.borderColor = 'var(--secondary)';
-    });
-});
 
 // Scroll Animations (Intersection Observer)
 const observerOptions = {
