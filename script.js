@@ -9,11 +9,8 @@ window.addEventListener('mousemove', (e) => {
     cursorDot.style.left = `${posX}px`;
     cursorDot.style.top = `${posY}px`;
 
-    // Add a slight delay/smoothness to the outline
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
+    cursorOutline.style.left = `${posX}px`;
+    cursorOutline.style.top = `${posY}px`;
 });
 
 // Interactive hover effect for links and buttons
