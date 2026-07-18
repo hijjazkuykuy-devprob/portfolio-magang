@@ -131,7 +131,7 @@ function openModal(title, desc, imgUrl, techHtml, linksHtml) {
     setTimeout(() => { modal.classList.add('active'); }, 10);
 }
 
-// Add Detail button to all project cards dynamically
+// Make Project Image clickable to open modal
 document.querySelectorAll('.project-card').forEach(card => {
     const title = card.querySelector('h3').innerText;
     const desc = card.querySelector('p').innerHTML;
@@ -139,16 +139,9 @@ document.querySelectorAll('.project-card').forEach(card => {
     const techHtml = card.querySelector('.tech-stack').innerHTML;
     const linksHtml = card.querySelector('.project-links').innerHTML;
 
-    const detailBtn = document.createElement('button');
-    detailBtn.className = 'btn btn-sm btn-outline btn-detail';
-    detailBtn.style.marginRight = '10px';
-    detailBtn.style.marginBottom = '10px';
-    detailBtn.innerHTML = '<i class="fa-solid fa-circle-info"></i> Detail';
-    
-    detailBtn.onclick = (e) => {
-        e.preventDefault();
+    const projectImage = card.querySelector('.project-image');
+    projectImage.style.cursor = 'pointer';
+    projectImage.onclick = () => {
         openModal(title, desc, imgUrl, techHtml, linksHtml);
     };
-    
-    card.querySelector('.project-links').prepend(detailBtn);
 });
