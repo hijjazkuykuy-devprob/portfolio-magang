@@ -96,6 +96,24 @@ if (hamburger && navPill) {
     });
 }
 
+// Biodata Modal Logic
+const biodataModal = document.getElementById('biodata-modal');
+const closeBiodata = document.getElementById('close-biodata');
+const logoPill = document.querySelector('.logo-pill');
+
+if (biodataModal && closeBiodata && logoPill) {
+    logoPill.style.cursor = 'pointer';
+    logoPill.onclick = () => {
+        biodataModal.style.display = 'flex';
+        setTimeout(() => { biodataModal.classList.add('active'); }, 10);
+    };
+
+    closeBiodata.onclick = () => {
+        biodataModal.classList.remove('active');
+        setTimeout(() => { biodataModal.style.display = 'none'; }, 300);
+    };
+}
+
 // Modal Logic for Projects
 const modal = document.getElementById('project-modal');
 const closeModal = document.querySelector('.close-modal');
@@ -105,13 +123,17 @@ if (modal && closeModal) {
         modal.classList.remove('active');
         setTimeout(() => { modal.style.display = 'none'; }, 300);
     }
-
-    window.onclick = (e) => {
-        if (e.target == modal) {
-            closeModal.onclick();
-        }
-    }
 }
+
+// Global click event to close modals when clicking outside
+window.addEventListener('click', (e) => {
+    if (modal && e.target == modal) {
+        closeModal.onclick();
+    }
+    if (biodataModal && e.target == biodataModal) {
+        closeBiodata.onclick();
+    }
+});
 
 function openModal(title, desc, imgUrl, techHtml, linksHtml) {
     if (!modal) return;
