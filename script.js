@@ -17,7 +17,7 @@ window.addEventListener('mousemove', (e) => {
 });
 
 // Interactive hover effect for links and buttons
-const interactables = document.querySelectorAll('a, .btn, .project-card, .skill-category');
+const interactables = document.querySelectorAll('a, .btn, .project-card, .skill-category, .close-modal');
 interactables.forEach(el => {
     el.addEventListener('mouseenter', () => {
         cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
