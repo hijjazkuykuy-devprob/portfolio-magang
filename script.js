@@ -95,3 +95,60 @@ if (hamburger && navPill) {
         navPill.classList.toggle('active');
     });
 }
+
+// Modal Logic for Projects
+const modal = document.getElementById('project-modal');
+const closeModal = document.querySelector('.close-modal');
+
+if (modal && closeModal) {
+    closeModal.onclick = () => {
+        modal.classList.remove('active');
+        setTimeout(() => { modal.style.display = 'none'; }, 300);
+    }
+
+    window.onclick = (e) => {
+        if (e.target == modal) {
+            closeModal.onclick();
+        }
+    }
+}
+
+function openModal(title, desc, imgUrl, techHtml, linksHtml) {
+    if (!modal) return;
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-desc').innerHTML = desc;
+    document.getElementById('modal-img').src = imgUrl;
+    document.getElementById('modal-tech').innerHTML = techHtml;
+    
+    // Copy links but remove the detail button itself to avoid confusion
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = linksHtml;
+    const detailBtn = tempDiv.querySelector('.btn-detail');
+    if (detailBtn) detailBtn.remove();
+    document.getElementById('modal-links').innerHTML = tempDiv.innerHTML;
+    
+    modal.style.display = 'flex';
+    setTimeout(() => { modal.classList.add('active'); }, 10);
+}
+
+// Add Detail button to all project cards dynamically
+document.querySelectorAll('.project-card').forEach(card => {
+    const title = card.querySelector('h3').innerText;
+    const desc = card.querySelector('p').innerHTML;
+    const imgUrl = card.querySelector('img').src;
+    const techHtml = card.querySelector('.tech-stack').innerHTML;
+    const linksHtml = card.querySelector('.project-links').innerHTML;
+
+    const detailBtn = document.createElement('button');
+    detailBtn.className = 'btn btn-sm btn-outline btn-detail';
+    detailBtn.style.marginRight = '10px';
+    detailBtn.style.marginBottom = '10px';
+    detailBtn.innerHTML = '<i class="fa-solid fa-circle-info"></i> Detail';
+    
+    detailBtn.onclick = (e) => {
+        e.preventDefault();
+        openModal(title, desc, imgUrl, techHtml, linksHtml);
+    };
+    
+    card.querySelector('.project-links').prepend(detailBtn);
+});
