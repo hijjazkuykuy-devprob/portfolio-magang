@@ -37,16 +37,21 @@ const observerOptions = {
 };
 
 const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-            observer.unobserve(entry.target); // Only animate once
-        }
+    let delay = 0;
+    const intersecting = entries.filter(entry => entry.isIntersecting);
+    
+    intersecting.forEach(entry => {
+        // Tambahkan efek delay bertahap (stagger) untuk elemen yang muncul bersamaan
+        entry.target.style.transitionDelay = `${delay}ms`;
+        entry.target.classList.add('show');
+        delay += 150; // Jeda 150ms per elemen
+        
+        observer.unobserve(entry.target); // Animasi hanya berjalan sekali
     });
 }, observerOptions);
 
-// Add 'hidden' class to elements we want to animate, then observe them
-const animateElements = document.querySelectorAll('.section-header, .glass-card, .skill-category');
+// Tambahkan elemen-elemen yang ingin dianimasikan
+const animateElements = document.querySelectorAll('.section-header, .glass-card, .skill-category, .contact-item');
 animateElements.forEach(el => {
     el.classList.add('hidden');
     observer.observe(el);

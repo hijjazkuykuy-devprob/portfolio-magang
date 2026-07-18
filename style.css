@@ -322,8 +322,18 @@ h1, h2, h3 { line-height: 1.2; }
     text-align: left;
     max-width: 600px;
     padding-right: 20px;
-    animation: fadeIn 1s ease-out;
 }
+
+.hero-text > * {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.hero-text .greeting { animation-delay: 0.1s; }
+.hero-text .name { animation-delay: 0.3s; }
+.hero-text .summary { animation-delay: 0.5s; }
+.hero-text .cta-buttons { animation-delay: 0.7s; }
+.hero-text .social-links { animation-delay: 0.9s; }
 
 .hero-image {
     flex: 1;
@@ -438,6 +448,96 @@ h1, h2, h3 { line-height: 1.2; }
 .social-links a:hover {
     color: var(--primary);
     transform: translateY(-5px);
+}
+
+/* Timeline Section (Kanan-Kiri) */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: var(--glass-border);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Ganjil di Kiri */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 40px;
+}
+
+/* Genap di Kanan */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 40px;
+}
+
+/* Dot Tengah */
+.timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    border-radius: 50%;
+    top: 30px;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -8px;
+}
+
+.timeline-content {
+    padding: 30px;
+    position: relative;
+}
+
+.timeline-date {
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.timeline-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.timeline-text {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 /* Skills Section */
@@ -708,5 +808,25 @@ footer {
     
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Mobile Timeline Override */
+    .timeline::before {
+        left: 20px;
+        transform: none;
+    }
+    .timeline-item {
+        width: 100%;
+    }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        padding-left: 60px;
+        padding-right: 0;
+    }
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 12px;
+        right: auto;
     }
 }
