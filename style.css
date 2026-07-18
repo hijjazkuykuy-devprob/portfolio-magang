@@ -600,6 +600,10 @@ h1, h2, h3 { line-height: 1.2; }
     transition: transform 0.5s ease;
 }
 
+.project-image img {
+    transform: scale(1.08); /* Zoom sedikit untuk menghilangkan garis putih di pinggir screenshot */
+}
+
 .project-card:hover .project-image {
     transform: scale(1.05);
 }
