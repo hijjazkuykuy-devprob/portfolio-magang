@@ -112,10 +112,11 @@ h1, h2, h3 { line-height: 1.2; }
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, border-color 0.3s ease;
+    will-change: transform;
 }
 
 .glass-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) translateZ(0);
     border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -131,7 +132,13 @@ h1, h2, h3 { line-height: 1.2; }
     align-items: center;
     z-index: 100;
     background: transparent;
-    transition: all 0.3s ease;
+    transition: padding 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 15px 5%;
+    background-color: rgba(5, 5, 5, 0.9);
+    backdrop-filter: blur(10px);
 }
 
 .logo-pill {

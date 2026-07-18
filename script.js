@@ -72,17 +72,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Navbar scroll effect
 const navbar = document.querySelector('.navbar');
+let isScrolled = false;
+
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        navbar.style.padding = '15px 5%';
-        navbar.style.background = 'rgba(5, 5, 5, 0.9)';
-        navbar.style.backdropFilter = 'blur(10px)';
+        if (!isScrolled) {
+            navbar.classList.add('scrolled');
+            isScrolled = true;
+        }
     } else {
-        navbar.style.padding = '30px 5%';
-        navbar.style.background = 'transparent';
-        navbar.style.backdropFilter = 'none';
+        if (isScrolled) {
+            navbar.classList.remove('scrolled');
+            isScrolled = false;
+        }
     }
-});
+}, { passive: true });
 
 // Hamburger menu logic
 const hamburger = document.getElementById('hamburger');
