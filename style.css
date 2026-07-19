@@ -665,6 +665,19 @@ h1, h2, h3 { line-height: 1.2; }
     font-weight: 500;
 }
 
+.contact-card-wrapper {
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding: 70px 50px;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -797,6 +810,39 @@ footer {
     
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .project-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .project-links a {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .contact-card-wrapper {
+        padding: 40px 20px;
+    }
+    
+    .contact-buttons {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .contact-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn-outline-pill {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
     }
     
     /* Mobile Timeline Override */

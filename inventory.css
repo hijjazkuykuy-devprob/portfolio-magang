@@ -329,3 +329,21 @@ input:focus, select:focus {
     color: white;
     transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 1rem;
+    }
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+    .action-bar {
+        justify-content: center;
+    }
+    .action-bar .btn-action {
+        width: 100%;
+    }
+    .form-group-row {
+        grid-template-columns: 1fr;
+    }
+}
