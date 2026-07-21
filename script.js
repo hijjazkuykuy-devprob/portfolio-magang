@@ -21,7 +21,7 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, observerOptions);
 
 // Tambahkan elemen-elemen yang ingin dianimasikan
-const animateElements = document.querySelectorAll('.section-header, .glass-card, .skill-category, .contact-item');
+const animateElements = document.querySelectorAll('.section-header, .glass-card:not(.project-card), .skill-category, .contact-item');
 animateElements.forEach(el => {
     el.classList.add('hidden');
     observer.observe(el);
