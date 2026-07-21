@@ -20,14 +20,24 @@
 body {
     font-family: 'Outfit', sans-serif;
     background-color: var(--bg-color);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('image/backgorund.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--bg-color);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('image/backgorund.png');
+    background-size: cover;
+    background-position: center;
 }
 
 
