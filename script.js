@@ -141,3 +141,60 @@ document.querySelectorAll('.project-card').forEach(card => {
         openModal(title, desc, imgUrl, techHtml, linksHtml);
     };
 });
+
+// Pagination Logic for Projects
+document.addEventListener("DOMContentLoaded", () => {
+    const projects = document.querySelectorAll('.project-card');
+    const paginationControls = document.getElementById('pagination-controls');
+    
+    if (projects.length === 0 || !paginationControls) return;
+
+    const itemsPerPage = 6;
+    const totalPages = Math.ceil(projects.length / itemsPerPage);
+    let currentPage = 1;
+
+    function showPage(page) {
+        currentPage = page;
+        
+        projects.forEach((card, index) => {
+            card.style.display = 'none'; // Hide all initially
+            // Remove 'show' class to reset animation if needed, but it's handled by IntersectionObserver
+            
+            if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+                card.style.display = 'flex'; // Show elements for current page
+                
+                // Re-trigger observer if it's already hidden, or just let CSS show it
+                setTimeout(() => {
+                    card.classList.add('show');
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 50);
+            }
+        });
+
+        updatePaginationButtons();
+    }
+
+    function updatePaginationButtons() {
+        paginationControls.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement('button');
+            btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+            btn.innerText = i;
+            btn.onclick = () => {
+                showPage(i);
+                // Scroll to top of projects section smoothly
+                const projectSection = document.getElementById('projects');
+                if (projectSection) {
+                    projectSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            };
+            paginationControls.appendChild(btn);
+        }
+    }
+
+    // Initialize first page
+    if (totalPages > 1) {
+        showPage(1);
+    }
+});
