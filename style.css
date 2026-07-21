@@ -570,6 +570,8 @@ h1, h2, h3 { line-height: 1.2; }
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    max-width: 1120px;
+    margin: 0 auto;
     gap: 40px;
 }
 
