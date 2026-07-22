@@ -1,4 +1,19 @@
 
+// Intro Splash Screen
+window.addEventListener('load', () => {
+    const splash = document.getElementById('intro-splash');
+    if (splash) {
+        // Wait for text animations to finish, then fade out
+        setTimeout(() => {
+            splash.classList.add('fade-out');
+            // Remove from DOM after transition
+            setTimeout(() => {
+                splash.remove();
+            }, 850);
+        }, 2400);
+    }
+});
+
 // Scroll Animations (Intersection Observer)
 const observerOptions = {
     root: null,
@@ -127,29 +142,53 @@ function openModal(title, desc, imgUrl, techHtml, linksHtml) {
     setTimeout(() => { modal.classList.add('active'); }, 10);
 }
 
-// Make Project Image clickable to open modal
-document.querySelectorAll('.project-card').forEach(card => {
-    const title = card.querySelector('h3').innerText;
-    const desc = card.querySelector('p').innerHTML;
-    const imgUrl = card.querySelector('img').src;
-    const techHtml = card.querySelector('.tech-stack').innerHTML;
-    const linksHtml = card.querySelector('.project-links').innerHTML;
+// Make Project and Cert Images clickable to open modal
+document.querySelectorAll('.project-card, .cert-card').forEach(card => {
+    const title = card.querySelector('h3') ? card.querySelector('h3').innerText : '';
+    const desc = card.querySelector('p') ? card.querySelector('p').innerHTML : '';
+    const imgUrl = card.querySelector('img') ? card.querySelector('img').src : '';
+    
+    const techStack = card.querySelector('.tech-stack');
+    const techHtml = techStack ? techStack.innerHTML : '';
+    
+    const projectLinks = card.querySelector('.project-links');
+    const linksHtml = projectLinks ? projectLinks.innerHTML : '';
 
-    const projectImage = card.querySelector('.project-image');
-    projectImage.style.cursor = 'pointer';
-    projectImage.onclick = () => {
-        openModal(title, desc, imgUrl, techHtml, linksHtml);
-    };
+    const imageContainer = card.querySelector('.project-image, .cert-image');
+    if (imageContainer) {
+        imageContainer.style.cursor = 'pointer';
+        imageContainer.onclick = (e) => {
+            if (e.target.closest('.cert-view-btn')) return;
+            openModal(title, desc, imgUrl, techHtml, linksHtml);
+        };
+    }
+
 });
 
-// Pagination Logic for Projects
+// Pagination Logic for Projects (Desktop Only)
 document.addEventListener("DOMContentLoaded", () => {
     const projects = document.querySelectorAll('.project-card');
     const paginationControls = document.getElementById('pagination-controls');
     
     if (projects.length === 0 || !paginationControls) return;
 
-    const itemsPerPage = 6;
+    // Only run pagination on desktop (>768px)
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    if (isMobile()) {
+        // On mobile: clear any inline display styles, let CSS handle visibility
+        projects.forEach(card => {
+            card.style.display = '';
+            card.style.opacity = '';
+            card.style.transform = '';
+        });
+        paginationControls.style.display = 'none';
+        return;
+    }
+
+    const itemsPerPage = 8;
     const totalPages = Math.ceil(projects.length / itemsPerPage);
     let currentPage = 1;
 
@@ -158,12 +197,10 @@ document.addEventListener("DOMContentLoaded", () => {
         
         projects.forEach((card, index) => {
             card.style.display = 'none'; // Hide all initially
-            // Remove 'show' class to reset animation if needed, but it's handled by IntersectionObserver
             
             if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
                 card.style.display = 'flex'; // Show elements for current page
                 
-                // Re-trigger observer if it's already hidden, or just let CSS show it
                 setTimeout(() => {
                     card.classList.add('show');
                     card.style.opacity = '1';
@@ -196,5 +233,63 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize first page
     if (totalPages > 1) {
         showPage(1);
+    } else {
+        showPage(1);
+        paginationControls.style.display = 'none';
     }
+});
+
+// Mobile "View All Projects" Toggle Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const viewAllBtn = document.getElementById('mobile-view-all-btn');
+    const projectsGrid = document.querySelector('.projects-grid');
+
+    if (!viewAllBtn || !projectsGrid) return;
+
+    let isExpanded = false;
+
+    viewAllBtn.onclick = () => {
+        if (!isExpanded) {
+            // EXPAND: Show all project cards
+            projectsGrid.classList.add('show-all');
+
+            // Animate the newly visible cards
+            const hiddenCards = projectsGrid.querySelectorAll('.project-card:nth-child(n+5)');
+            hiddenCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            // Change button text
+            viewAllBtn.innerHTML = 'Show Less <i class="fa-solid fa-chevron-up"></i>';
+            isExpanded = true;
+        } else {
+            // COLLAPSE: Hide extra cards
+            projectsGrid.classList.remove('show-all');
+
+            // Clear inline styles on hidden cards
+            const hiddenCards = projectsGrid.querySelectorAll('.project-card:nth-child(n+5)');
+            hiddenCards.forEach(card => {
+                card.style.opacity = '';
+                card.style.transform = '';
+                card.style.transition = '';
+            });
+
+            // Scroll to the last visible card (4th) bottom area
+            const lastVisibleCard = projectsGrid.querySelectorAll('.project-card')[3];
+            if (lastVisibleCard) {
+                const cardBottom = lastVisibleCard.getBoundingClientRect().bottom + window.scrollY;
+                window.scrollTo({ top: cardBottom - window.innerHeight + 150, behavior: 'instant' });
+            }
+
+            // Change button text back
+            viewAllBtn.innerHTML = 'View All Projects <i class="fa-solid fa-chevron-down"></i>';
+            isExpanded = false;
+        }
+    };
 });
