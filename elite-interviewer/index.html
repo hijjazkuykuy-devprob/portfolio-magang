@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EliteInterviewer AI | Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#cbdbf5",
+                    "surface-container-low": "#eff4ff",
+                    "primary": "#000000",
+                    "outline": "#76777d",
+                    "surface": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#7c839b",
+                    "background": "#f8f9ff",
+                    "surface-variant": "#d3e4fe",
+                    "surface-container": "#e5eeff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "secondary-container": "#adedd3",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#213145",
+                    "on-primary-fixed": "#131b2e",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-tertiary-fixed": "#191c1e",
+                    "secondary": "#2b6954",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#565e74",
+                    "secondary-fixed": "#b0f0d6",
+                    "on-secondary-fixed-variant": "#0b513d",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-secondary-fixed": "#002117",
+                    "on-secondary-container": "#306d58",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#bec6e0",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-background": "#0b1c30",
+                    "tertiary-container": "#191c1e",
+                    "primary-container": "#131b2e",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary-fixed": "#dae2fd",
+                    "on-surface": "#0b1c30",
+                    "surface-bright": "#f8f9ff",
+                    "on-tertiary-container": "#818486",
+                    "tertiary": "#000000",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#bec6e0",
+                    "outline-variant": "#c6c6cd",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#45464d",
+                    "secondary-fixed-dim": "#95d3ba",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "surface-container-high": "#dce9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "base": "8px",
+                    "section-gap": "96px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Geist"],
+                    "display-lg-mobile": ["\"Source Serif 4\""],
+                    "label-sm": ["Geist"],
+                    "label-md": ["Geist"],
+                    "headline-md": ["\"Source Serif 4\""],
+                    "display-lg": ["\"Source Serif 4\""],
+                    "headline-sm": ["\"Source Serif 4\""],
+                    "body-md": ["Geist"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-md": ["30px", {"lineHeight": "38px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #eff4ff; /* surface-container-low */
+            color: #0b1c30; /* on-surface */
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .micro-shadow {
+            box-shadow: 0px 4px 20px rgba(15, 23, 42, 0.05);
+        }
+        .sidebar-active {
+            background-color: #adedd3; /* secondary-container */
+            color: #306d58; /* on-secondary-container */
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest border-r border-outline-variant flex flex-col py-8 px-4 z-50">
+<div class="mb-10 px-2">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">EliteInterviewer AI</span>
+</div>
+<div class="flex items-center space-x-3 mb-8 px-2">
+<div class="w-10 h-10 bg-surface-variant rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of Alex Sterling, an executive-level professional with a focused and confident expression. The lighting is soft and corporate, with a clean, high-end minimalist background in shades of light gray and white. Alex wears sophisticated business attire that conveys leadership and technical expertise in the tech industry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJcK62A9M1P1ofqUPOmu4IuD1xhF2zMiVj-g0JsSaOD49sI3FRHyK7tpX7nyWaF24-4oCqx0AjQzqGY_v_IGo9B0zUNavtN__CehXmKnV9wmc_LRI-CrGSwt81LtN7_befBtvEqsRQQIoHsPXVebMAEszLaPP08Cg_Y1bo41keVV8LBTBJVdzLCs0ATUWGIHTdTrZPX8o-hEFp4UvnKGc1nKa1ktrf6lfPJ5PbgR8Um3xGB37jzStf"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Alex Sterling</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Executive Candidate</p>
+</div>
+</div>
+<div class="space-y-1 flex-1">
+<a class="sidebar-active flex items-center gap-3 px-4 py-3 rounded transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-low transition-all active:scale-95" href="interview.html">
+<span class="material-symbols-outlined">mic_external_on</span>
+<span class="font-label-md text-label-md">Mock Interviews</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-low transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Feedback</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-low transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-md text-label-md">Resources</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-low transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+<a href="interview.html" class="mb-8 w-full bg-secondary text-on-secondary py-3 px-4 rounded font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+<span>Start Practice Session</span>
+</a>
+<div class="pt-6 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-low transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-low transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="h-16 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-desktop sticky top-0 z-40">
+<div class="flex-1 max-w-md">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-transparent border border-outline-variant rounded focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md" placeholder="Search sessions, resources..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">help_outline</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant cursor-pointer active:opacity-70 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Alex Sterling's profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk6DL4l2uKX7bOsSzeokgEr_Syn7zH4_3iP4qR-qHymfR4Oe6mVVjSONLkb6ykZarkZDTQEaNf0-zqnqb_SO_UwP6dZNQxUNO-ZZeCHzKVQFDw_OQ30OeTzWD5uNdKVqST1cerMvQEGM2OMQzMNLGFt-4xD4VyHZOLRpgVKHlj4xDNOJvCnQKnk12keSxZK_AYZY_ftB6QtjklotFnSihkn3F_gYAxywzSmn3PVfjzn0H5BaLfo1Cp"/>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="flex-1 px-margin-desktop py-12 max-w-container-max mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-section-gap">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary mb-2">Welcome Back, Alex Sterling</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Ready to refine your executive presence? Your progress in the <span class="font-semibold text-secondary">Frontend Developer - React</span> track is looking excellent.</p>
+</div>
+<a href="interview.html" class="bg-secondary text-on-secondary h-[48px] px-8 rounded font-label-md text-label-md flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all micro-shadow">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span>Start New Mock Interview</span>
+</a>
+</div>
+</section>
+<!-- Metrics Bento Grid -->
+<section class="mb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Average Score -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded micro-shadow flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant mb-4">Average Score</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-secondary">82%</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<p class="mt-auto font-label-sm text-label-sm text-on-surface-variant">+3% from last week</p>
+</div>
+<!-- Total Sessions -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded micro-shadow">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant mb-4">Total Sessions</span>
+<span class="font-display-lg text-display-lg text-primary">12</span>
+<div class="w-full bg-surface-container-low h-1 mt-6 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[60%]"></div>
+</div>
+</div>
+<!-- Hours Practiced -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded micro-shadow">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant mb-4">Hours Practiced</span>
+<span class="font-display-lg text-display-lg text-primary">8h</span>
+<p class="mt-4 font-label-sm text-label-sm text-on-surface-variant">Equivalent to 4 coaching hours</p>
+</div>
+<!-- Skill Level -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded micro-shadow">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant mb-4">Skill Level</span>
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm text-primary">Senior</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">Verified</span>
+</div>
+<p class="mt-4 font-label-sm text-label-sm text-on-surface-variant">Top 15% of candidates</p>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Recommended Path & Recent Feedback (Main Column) -->
+<div class="lg:col-span-2 space-y-gutter">
+<!-- Recommended Path -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded micro-shadow">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Recommended Path</h2>
+<p class="text-on-surface-variant">Frontend Developer - React</p>
+</div>
+<span class="material-symbols-outlined text-secondary-fixed-dim text-4xl">architecture</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface">Curriculum Progress</span>
+<span class="text-secondary font-bold">68%</span>
+</div>
+<div class="w-full bg-surface-container-low h-3 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[68%] transition-all duration-1000 ease-out"></div>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-4">
+<div class="p-3 bg-surface rounded border border-outline-variant text-center opacity-60">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Basics</p>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="p-3 bg-surface rounded border border-secondary text-center">
+<p class="font-label-sm text-label-sm text-on-surface">System Architecture</p>
+<span class="material-symbols-outlined text-secondary animate-pulse">pending</span>
+</div>
+<div class="p-3 bg-surface rounded border border-outline-variant text-center opacity-60">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Behavioral</p>
+<span class="material-symbols-outlined text-on-surface-variant">lock</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Feedback -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded micro-shadow">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-sm text-headline-sm text-primary">Recent Feedback Snippet</h2>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Session: Oct 24, 2024</span>
+</div>
+<div class="bg-surface-container-low p-6 border-l-4 border-secondary rounded-r">
+<p class="font-body-md text-body-md italic text-on-surface mb-4">"Alex demonstrated strong technical knowledge of React's reconciliation algorithm. However, when asked about executive trade-offs, the response could be more concise. Try to focus on business outcomes rather than just technical implementation details."</p>
+<div class="flex gap-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm">Strength: Deep Technical</span>
+<span class="bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-sm text-label-sm">Area: Executive Summary</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Opportunities (Sidebar Column) -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded micro-shadow">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-8">Upcoming Opportunities</h2>
+<div class="space-y-6">
+<!-- Event 1 -->
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-variant rounded flex flex-col items-center justify-center border border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Oct</span>
+<span class="font-headline-sm text-headline-sm text-primary leading-none">28</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Technical Strategy Review</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Live Workshop • 2:00 PM</p>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-variant rounded flex flex-col items-center justify-center border border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Nov</span>
+<span class="font-headline-sm text-headline-sm text-primary leading-none">02</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Mock Interview (Final)</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">AI Coach V3 • 10:00 AM</p>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="flex gap-4 opacity-50">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-variant rounded flex flex-col items-center justify-center border border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Nov</span>
+<span class="font-headline-sm text-headline-sm text-primary leading-none">05</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Portfolio Presentation</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Community Peer Review</p>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-outline-variant">
+<button class="w-full border border-primary text-primary h-[48px] rounded font-label-md text-label-md hover:bg-surface-container-low transition-colors">
+                            View Full Calendar
+                        </button>
+</div>
+<div class="mt-8 rounded overflow-hidden relative group">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sophisticated, minimalist abstract representation of professional networking and career growth. The image uses a clean, light-mode corporate aesthetic with subtle textures of glass and polished marble. The color scheme is dominated by white and soft grays with elegant emerald green accents, symbolizing success and professional advancement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAj1iZClRHei1Q1XIoU-B8DPWaneQu493r78PfwZrH6Gp_65pmIfWns7MRtd2JhCkYyV0YrMGHP8XkbvHVpSXHihPjAwpzNKc2BDCjW4Armg8lKdnRdlzAXU9wVYlO3V79Gu2jSNH-nlCDT5bwifeVGZnxGN3ATrwzAY1d19nE_ZGSWXejFwm0ybU0yWaAC4GKAiCS1R-40x7sc-ZRytsw2CGd09knUj993CTkjFvh9Cl6rI91yewR"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end p-4">
+<p class="text-on-primary font-label-md text-label-md">Ready for the real thing? <br/>Connect with 50+ Partners</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-auto bg-surface-container py-12 border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex items-center gap-4">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">EliteInterviewer AI</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">© 2024. All Rights Reserved.</span>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors cursor-pointer" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors cursor-pointer" href="#">Security</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors cursor-pointer" href="#">Enterprise Solutions</a>
+</div>
+</div>
+</footer>
+</main>
+<script>
+        // Micro-interactions and simple effects
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Floating shadow effect for cards on hover
+        document.querySelectorAll('.micro-shadow').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.boxShadow = '0px 10px 30px rgba(15, 23, 42, 0.08)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0px 4px 20px rgba(15, 23, 42, 0.05)';
+            });
+        });
+    </script>
+</body></html>

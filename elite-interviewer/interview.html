@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EliteInterviewer AI | Interview Session</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#444749",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "tertiary": "#000000",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c6c6cd",
+                        "secondary-fixed": "#b0f0d6",
+                        "on-surface": "#0b1c30",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-primary": "#bec6e0",
+                        "on-secondary-fixed": "#002117",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#adedd3",
+                        "on-secondary-fixed-variant": "#0b513d",
+                        "inverse-surface": "#213145",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#76777d",
+                        "on-secondary-container": "#306d58",
+                        "secondary": "#2b6954",
+                        "background": "#f1f5f9", /* Light gray background */
+                        "on-tertiary-fixed": "#191c1e",
+                        "primary-container": "#131b2e",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-fixed": "#dae2fd",
+                        "tertiary-fixed": "#e0e3e5",
+                        "primary-fixed-dim": "#bec6e0",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-container": "#191c1e",
+                        "secondary-fixed-dim": "#95d3ba",
+                        "surface-container": "#e5eeff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "on-primary-fixed": "#131b2e",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#cbdbf5",
+                        "on-background": "#0b1c30",
+                        "on-tertiary-container": "#818486",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#565e74",
+                        "primary": "#000000",
+                        "error-container": "#ffdad6",
+                        "app-blue": "#3b82f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "section-gap": "96px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "sans-modern": ["Inter", "sans-serif"],
+                        "body-lg": ["Geist"],
+                        "body-md": ["Geist"],
+                        "display-lg-mobile": ["\"Source Serif 4\""],
+                        "label-md": ["Geist"],
+                        "label-sm": ["Geist"],
+                        "display-lg": ["\"Source Serif 4\""],
+                        "headline-sm": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "headline-md": ["30px", {"lineHeight": "38px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .circular-progress {
+            background: conic-gradient(#2b6954 82%, #e2e8f0 0);
+        }
+        .chat-bubble-ai {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        .chat-bubble-user {
+            background: #f8f9ff;
+            border: 1px solid #d3e4fe;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 right-0 w-[calc(100%-320px)] z-40 flex justify-between items-center h-20 px-margin-desktop ml-80 border-b border-outline-variant bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-12 h-full">
+<a href="index.html" class="font-sans-modern text-2xl font-bold text-primary tracking-tight">EliteInterviewer AI</a>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="font-label-md text-label-md text-app-blue bg-blue-50 px-4 py-2 rounded-full font-semibold transition-all" href="#">Interview Mode</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Review</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Insights</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined hover:text-primary cursor-pointer">timer</span>
+<span class="material-symbols-outlined hover:text-primary cursor-pointer">notifications_none</span>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 border border-outline font-label-md text-label-md hover:bg-surface-container transition-colors rounded-sm">Save Progress</button>
+<a href="index.html" class="px-6 py-2 bg-secondary text-on-secondary font-label-md text-label-md hover:opacity-90 transition-opacity rounded-sm">End Session</a>
+</div>
+</div>
+</header>
+<!-- Side Navigation Bar -->
+<aside class="h-screen w-80 fixed left-0 top-0 border-r border-outline-variant bg-surface-container-lowest flex flex-col py-8 px-6 z-50 shadow-sm">
+<!-- Brand/Profile Header -->
+<div class="mb-12">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Professional portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyThoJRqy274L2V1dULC3pdkJUyGZpFZZirKiPKv0rTY3lx3RM7JAYrX2ul6rEIQRQ-X1FsLOVf0BYXZ9vCeiJNAVQuOCm6LolUSjMhqSfv_cd1hvMcFYSD3vb1DYYU5k9DC6iUb8NVZ273tPNUuJZvT9DRAHyBPnsl7tuYgS7KWYCA7jUU77CDsUsafW5_thjm68Cf5zEI3INyFdnftplHAX07nzz-E6x2vcP-OHQlJbZvKadffZ1"/>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary leading-tight">Alex Sterling</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Frontend Developer</p>
+</div>
+</div>
+<a href="index.html" class="w-full py-4 bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center gap-2 mb-8 hover:bg-primary-container transition-all active:scale-[0.98] rounded-sm">
+<span class="material-symbols-outlined">add</span>
+            New Mock Interview
+        </a>
+</div>
+<!-- Session Stats -->
+<div class="space-y-10 flex-grow">
+<!-- Timer Component -->
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant">
+<p class="font-label-sm text-label-sm uppercase text-on-surface-variant mb-2">Time Remaining</p>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-primary">14:52</span>
+<span class="font-label-md text-label-md text-on-surface-variant">mins</span>
+</div>
+<div class="w-full bg-outline-variant h-1 mt-4 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-2/3"></div>
+</div>
+</div>
+<!-- Performance Analytics -->
+<div class="flex flex-col items-center">
+<p class="font-label-sm text-label-sm uppercase text-on-surface-variant mb-6 self-start">Current Performance</p>
+<div class="relative w-40 h-40 flex items-center justify-center">
+<div class="circular-progress w-full h-full rounded-full flex items-center justify-center">
+<div class="w-[92%] h-[92%] bg-surface-container-lowest rounded-full flex flex-col items-center justify-center">
+<span class="font-display-lg text-display-lg font-bold text-primary">82%</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">Strong</span>
+</div>
+</div>
+</div>
+<p class="mt-6 text-center font-body-md text-on-surface-variant italic">"Technical depth is showing significant promise."</p>
+</div>
+</div>
+<!-- Footer Navigation -->
+<div class="mt-auto pt-8 border-t border-outline-variant space-y-4">
+<a class="flex items-center gap-4 py-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+            Support
+        </a>
+<a class="flex items-center gap-4 py-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+            Sign Out
+        </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-80 pt-20 h-screen flex flex-col">
+<!-- Chat Interface Layer -->
+<div class="flex-grow overflow-y-auto custom-scrollbar px-margin-desktop py-12">
+<div class="max-w-[800px] mx-auto space-y-12">
+<!-- AI Message Bubble -->
+<div class="flex gap-6 max-w-[85%] group">
+<div class="flex-shrink-0 w-10 h-10 bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="chat-bubble-ai p-8 shadow-sm rounded-lg">
+<p class="font-label-sm text-label-sm uppercase text-secondary mb-3 tracking-widest">Interviewer (AI)</p>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                        Great start, Alex. Now, can you explain the difference between <span class="font-bold text-primary">'useMemo'</span> and <span class="font-bold text-primary">'useCallback'</span> in React, and in what scenarios you would prioritize one over the other?
+                    </p>
+<div class="mt-6 flex gap-3">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-medium rounded-full uppercase tracking-tighter">React Advanced</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-medium rounded-full uppercase tracking-tighter">Performance Optimization</span>
+</div>
+</div>
+</div>
+<!-- User Message Placeholder -->
+<div class="flex gap-6 max-w-[85%] ml-auto justify-end opacity-0 transform translate-y-4 transition-all duration-500" id="user-response-preview">
+<div class="chat-bubble-user p-8 shadow-sm text-right rounded-lg">
+<p class="font-label-sm text-label-sm uppercase text-on-surface-variant mb-3 tracking-widest">Alex Sterling</p>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed italic" id="preview-text">
+                        Typing your response...
+                    </p>
+</div>
+<div class="flex-shrink-0 w-10 h-10 border border-outline-variant flex items-center justify-center text-primary bg-white">
+<span class="material-symbols-outlined">person</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="border-t border-outline-variant bg-white px-margin-desktop py-8 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<div class="max-w-[800px] mx-auto relative">
+<div class="absolute -top-12 left-0 flex items-center gap-2">
+<span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">AI is listening for technical precision</span>
+</div>
+<div class="flex flex-col gap-4 border border-outline-variant p-4 focus-within:border-primary transition-colors bg-white rounded-lg shadow-sm">
+<textarea class="w-full bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface min-h-[120px] resize-none placeholder:text-outline" id="chat-input" placeholder="Type your explanation here. Be specific about dependency arrays and memoization..."></textarea>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/30">
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-low" title="Attach code snippet">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-low" title="Voice input">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+</div>
+<button class="flex items-center gap-3 px-8 py-3 bg-secondary text-on-secondary font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all rounded-sm" id="send-btn">
+                        Send Answer
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+    // Simple micro-interaction for the chat input
+    const chatInput = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('send-btn');
+    const previewText = document.getElementById('preview-text');
+    const previewContainer = document.getElementById('user-response-preview');
+
+    chatInput.addEventListener('input', (e) => {
+        if (e.target.value.length > 0) {
+            previewContainer.classList.remove('opacity-0', 'translate-y-4');
+            previewText.textContent = e.target.value;
+        } else {
+            previewContainer.classList.add('opacity-0', 'translate-y-4');
+        }
+    });
+
+    sendBtn.addEventListener('click', () => {
+        if (chatInput.value.trim() !== "") {
+            // Animation reset
+            previewContainer.classList.add('scale-[1.02]', 'bg-secondary-container');
+            setTimeout(() => {
+                previewContainer.classList.remove('scale-[1.02]', 'bg-secondary-container');
+                chatInput.value = "";
+                previewContainer.classList.add('opacity-0', 'translate-y-4');
+            }, 400);
+        }
+    });
+
+    // Dynamic timer simulation
+    let time = 14 * 60 + 52;
+    const timerDisplay = document.querySelector('.font-display-lg');
+    setInterval(() => {
+        if (time > 0) {
+            time--;
+            const mins = Math.floor(time / 60);
+            const secs = time % 60;
+            timerDisplay.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+    }, 1000);
+</script>
+</body></html>
