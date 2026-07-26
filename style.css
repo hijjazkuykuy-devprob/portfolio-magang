@@ -793,13 +793,37 @@ h1, h2, h3 { line-height: 1.2; }
     justify-content: center;
     max-width: 1120px;
     margin: 0 auto;
-    gap: 40px;
+    gap: 30px;
 }
 
 .certifications-grid .cert-card {
     width: 320px;
     flex-grow: 1;
     max-width: 346px;
+}
+
+/* Mobile: hide extra certs behind view-all */
+@media (max-width: 768px) {
+    .certifications-grid {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .certifications-grid .cert-card {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .cert-extra-mobile {
+        display: none;
+    }
+    
+    .certifications-grid.show-all .cert-extra-mobile {
+        display: flex;
+    }
 }
 
 .project-card, .cert-card {

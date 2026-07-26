@@ -293,3 +293,51 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 });
+
+// Mobile "View All Certifications" Toggle Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const certViewAllBtn = document.getElementById('cert-view-all-btn');
+    const certsGrid = document.querySelector('.certifications-grid');
+
+    if (!certViewAllBtn || !certsGrid) return;
+
+    let certIsExpanded = false;
+
+    certViewAllBtn.onclick = () => {
+        if (!certIsExpanded) {
+            certsGrid.classList.add('show-all');
+
+            const hiddenCerts = certsGrid.querySelectorAll('.cert-extra-mobile');
+            hiddenCerts.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            certViewAllBtn.innerHTML = 'Show Less <i class="fa-solid fa-chevron-up"></i>';
+            certIsExpanded = true;
+        } else {
+            certsGrid.classList.remove('show-all');
+
+            const hiddenCerts = certsGrid.querySelectorAll('.cert-extra-mobile');
+            hiddenCerts.forEach(card => {
+                card.style.opacity = '';
+                card.style.transform = '';
+                card.style.transition = '';
+            });
+
+            const lastVisibleCert = certsGrid.querySelectorAll('.cert-card:not(.cert-extra-mobile)')[2];
+            if (lastVisibleCert) {
+                const cardBottom = lastVisibleCert.getBoundingClientRect().bottom + window.scrollY;
+                window.scrollTo({ top: cardBottom - window.innerHeight + 150, behavior: 'instant' });
+            }
+
+            certViewAllBtn.innerHTML = 'View All Certifications <i class="fa-solid fa-chevron-down"></i>';
+            certIsExpanded = false;
+        }
+    };
+});
