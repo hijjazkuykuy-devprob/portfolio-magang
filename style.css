@@ -818,11 +818,11 @@ h1, h2, h3 { line-height: 1.2; }
     }
     
     .cert-extra-mobile {
-        display: none;
+        display: none !important;
     }
     
     .certifications-grid.show-all .cert-extra-mobile {
-        display: flex;
+        display: flex !important;
     }
 }
 
